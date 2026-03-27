@@ -6,8 +6,8 @@ import AccountSettings from './pages/AccountSettings';
 import './App.css';
 
 function App() {
-  // Check if user is logged in
   const isLoggedIn = localStorage.getItem('popx_user') !== null;
+  console.log('App loaded, isLoggedIn:', isLoggedIn); // Debug
 
   return (
     <Router>
