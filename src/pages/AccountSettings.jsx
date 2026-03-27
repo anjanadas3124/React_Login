@@ -9,9 +9,12 @@ const AccountSettings = () => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem('popx_user');
+    console.log('Stored user:', storedUser); // Debug line
+    
     if (storedUser) {
       setUserData(JSON.parse(storedUser));
     } else {
+      console.log('No user found, redirecting to login');
       navigate('/login');
     }
   }, [navigate]);
@@ -21,7 +24,6 @@ const AccountSettings = () => {
     localStorage.removeItem('popx_user');
     setLogoutMessage('Logged out successfully!');
     
-    // Redirect to home after 1 second
     setTimeout(() => {
       navigate('/');
     }, 1000);
